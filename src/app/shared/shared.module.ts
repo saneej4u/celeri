@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule} from '@angular/common';
 
 
 import {MatButtonModule} from '@angular/material/button';
@@ -11,6 +11,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatStepperModule} from '@angular/material/stepper';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +21,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
   declarations: [],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
@@ -26,10 +30,13 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatStepperModule
     
   ],
   exports:[
+    ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
@@ -38,7 +45,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     MatFormFieldModule,
     MatInputModule,
     FlexLayoutModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatStepperModule
   ]
 })
 export class SharedModule { }
