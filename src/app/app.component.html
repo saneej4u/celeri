@@ -1,16 +1,46 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <button [routerLink]="['/']" routerLinkActive="router-link-active" mat-icon-button class="example-icon"
+      aria-label="Example icon-button with menu icon">
+      <mat-icon>home</mat-icon>
+    </button>
+    <span [routerLink]="['/']" routerLinkActive="router-link-active">Celeri</span>
+  </div>
 
-  <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Celeri</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
+  <div>
+      <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active">HOME</button>
+      <button mat-button [routerLink]="['/dentist/shop']" routerLinkActive="router-link-active">SHOP</button>
+      <button mat-button [routerLink]="['/dentist/orders']" routerLinkActive="router-link-active" >MY ORDER</button>
+      <button mat-button>CONTACT</button>
+  </div>
+  <!-- <div>
+    <span class="mat-h4"> Welcome Saneej</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>My Account</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications</mat-icon>
+          <span>Notifications</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/']" routerLinkActive="router-link-active">
+          <mat-icon>logout</mat-icon>
+          <span>Log Out</span>
+        </button>
+      </mat-menu>
+  </div> -->
+  <div>
+      <button mat-raised-button color="accent" [routerLink]="['/login']" routerLinkActive="router-link-active" >Sign In</button>
+      <button mat-raised-button color="warn" style="margin-left: 10px;" [routerLink]="['/signup']" routerLinkActive="router-link-active" >Register</button>
+  </div>
+
+</mat-toolbar>
+
+
+
 
 <router-outlet></router-outlet>

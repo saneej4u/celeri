@@ -1,3 +1,19 @@
-<button mat-raised-button [routerLink]="['/dentist/home']" routerLinkActive="router-link-active"  color="primary">Sign In</button>
-<button mat-raised-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  color="accent">Sign Up</button>
+
+  <div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap = "1" >
+  <mat-form-field appearance="outline">
+    <mat-label>Email address</mat-label>
+    <input matInput placeholder="Placeholder">
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="Placeholder" type="password">
+    <mat-icon matSuffix>visibility_off</mat-icon>
+  </mat-form-field>
+  <button mat-raised-button [routerLink]="['/dentist/home']" routerLinkActive="router-link-active"  color="primary" style="width: 225px; margin: 20px;">Sign In</button>
+  <button mat-raised-button [routerLink]="['/signup']" routerLinkActive="router-link-active"  style="width: 225px; margin: 20px;">Sign Up</button>
+  </div>
+
+
+
 
