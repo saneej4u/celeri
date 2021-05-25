@@ -14,6 +14,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatStepperModule} from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
@@ -37,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports:[
     ReactiveFormsModule,
+    RouterModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,

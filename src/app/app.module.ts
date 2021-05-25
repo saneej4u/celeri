@@ -10,6 +10,7 @@ import { AccountModule } from './account/account.module';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { DentistModule } from './dentist/dentist.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DentistModule } from './dentist/dentist.module';
     BrowserAnimationsModule,
     AccountModule,
     SharedModule,
-    DentistModule
+    DentistModule,
+    CoreModule
 
   ],
   providers: [],
