@@ -9,6 +9,7 @@ import { OrderComponent } from './order/order.component';
 import { ImplantComponent } from './implant/implant.component';
 import { CrownBridgeComponent } from './crown-bridge/crown-bridge.component';
 import { OrthodonticComponent } from './orthodontic/orthodontic.component';
+import { MyDetailsComponent } from './my-details/my-details.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { OrthodonticComponent } from './orthodontic/orthodontic.component';
     OrderComponent,
     ImplantComponent,
     CrownBridgeComponent,
-    OrthodonticComponent
+    OrthodonticComponent,
+    MyDetailsComponent
   ],
   imports: [
     CommonModule,

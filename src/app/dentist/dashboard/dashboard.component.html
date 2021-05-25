@@ -1,1 +1,55 @@
-<p class="mat-h2">Dentist Home</p>
+<div fxLayout="column" style="padding:0 10%">
+    <br>
+
+    <h2>Dashboard</h2>
+    <mat-divider></mat-divider>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="20px">
+
+        <div fxFlex="25" class="dashborad-item">
+            <h4 class="text-align-center">New Orders</h4>
+            <h1 class="text-align-center">12</h1>
+        </div>
+
+        <div fxFlex="25" class="dashborad-item">
+            <h4 class="text-align-center">Orders In Transit</h4>
+            <h1 class="text-align-center">12</h1>
+        </div>
+        <div fxFlex="25" class="dashborad-item">
+            <h4 class="text-align-center">Orders with Swift</h4>
+            <h1 class="text-align-center">12</h1>
+        </div>
+        <div fxFlex="25" class="dashborad-item">
+            <h4 class="text-align-center">Orders Completed</h4>
+            <h1 class="text-align-center">12</h1>
+        </div>
+
+    </div>
+
+    <br>
+    <h2>Active Orders</h2>
+    <mat-divider></mat-divider>
+    <br>
+
+    <mat-radio-group aria-label="Select an option" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+        <mat-radio-button value="1">All</mat-radio-button>
+        <mat-radio-button value="2">In transit</mat-radio-button>
+        <mat-radio-button value="2">With Swift</mat-radio-button>
+        <mat-radio-button value="2">Completed</mat-radio-button>
+    </mat-radio-group>
+
+    <br>
+    <!-- <div *ngFor="let item of activeItems">
+
+        <mat-card style="margin: 10px 0">Simple card {{item}}</mat-card>
+    </div> -->
+
+    <mat-list>
+            <mat-list-item>Item 1</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Item 2</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Item 3</mat-list-item>
+          </mat-list>
+
+</div>

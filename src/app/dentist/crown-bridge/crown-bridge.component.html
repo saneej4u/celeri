@@ -1,62 +1,66 @@
+<h2 mat-dialog-title>Crown & Bridge</h2>
+<p>Learn one way to build applications with Angular and reuse your code and abilities to build
+  apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>
 
-
-      <h2 mat-dialog-title>Crown & Bridge</h2>
-      <p>Learn one way to build applications with Angular and reuse your code and abilities to build
-            apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>
-
-            <br>
+<br>
 <mat-dialog-content class="mat-typography">
-        <mat-horizontal-stepper #stepper>
-                <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
-                  <form [formGroup]="firstFormGroup">
-                    <ng-template matStepLabel>Patient Details</ng-template>
-                    <mat-form-field>
-                      <mat-label>Name</mat-label>
-                      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-                    </mat-form-field>
-                    <div>
-                      <p>Go to a different step to see the error state</p>
-                      <button mat-raised-button color="primary" matStepperNext>Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-                <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
-                  <form [formGroup]="secondFormGroup">
-                    <ng-template matStepLabel>About Crown</ng-template>
-                    <mat-form-field>
-                      <mat-label>Address</mat-label>
-                      <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
-                             required>
-                    </mat-form-field>
-                    <div>
-                      <p>Go to a different step to see the error state</p>
-                      <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-                      <button mat-raised-button color="primary" matStepperNext>Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-                <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
-                        <form [formGroup]="secondFormGroup">
-                          <ng-template matStepLabel>Delivery details</ng-template>
-                          <mat-form-field>
-                            <mat-label>Address</mat-label>
-                            <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
-                                   required>
-                          </mat-form-field>
-                          <div>
-                            <p>Go to a different step to see the error state</p>
-                            <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-                            <button mat-raised-button color="primary" matStepperNext>Next</button>
-                          </div>
-                        </form>
-                      </mat-step>
-                <mat-step>
-                  <ng-template matStepLabel>Summary</ng-template>
-                  <p>You are now done.</p>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-raised-button color="primary" (click)="stepper.reset()">Place Order</button>
-                  </div>
-                </mat-step>
-              </mat-horizontal-stepper>
+  <mat-horizontal-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Patient Details</ng-template>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <p>Go to a different step to see the error state</p>
+          <div fxLayout="row" fxLayoutAlign="end center" style="padding: 10px 20px;">
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>About Crown</ng-template>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <p>Go to a different step to see the error state</p>
+
+          <div fxLayout="row" fxLayoutAlign="end center" style="padding: 10px 20px;">
+              <button mat-raised-button color="warn" matStepperPrevious style="margin-right: 10px;">Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+
+        
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Delivery details</ng-template>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <p>Go to a different step to see the error state</p>
+          <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Summary</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" (click)="stepper.reset()">Place Order</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
 </mat-dialog-content>
