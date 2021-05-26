@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountModule } from './account/account.module';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { DentistModule } from './dentist/dentist.module';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { CoreModule } from './core/core.module';
     BrowserAnimationsModule,
     AccountModule,
     SharedModule,
-    DentistModule,
     CoreModule
 
   ],

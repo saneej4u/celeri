@@ -1,5 +1,5 @@
 <div fxLayout="row" style="height: 100vh" fxLayoutAlign="space-around start">
-    <div fxFlex="40" style="background: lightgray" style="margin: 30px; padding: 30px;">
+    <div fxFlex="40" class="mat-elevation-z8" style="background: lightgray" style="margin: 30px; padding: 30px;">
         <h2>My Details</h2>
         <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="30px;">
             <div fxFlex="50">
@@ -51,7 +51,7 @@
 
     </div>
     
-    <div fxFlex="50" style="background: lightgray" style="margin: 30px 0px; padding: 30px;">
+    <div fxFlex="50" class="mat-elevation-z8" style="background: lightgray" style="margin: 30px 0px; padding: 30px;">
         
             <div fxLayout="row" fxLayoutAlign="space-between center" >
 
@@ -67,7 +67,7 @@
                     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
                 </mat-form-field>
 
-                <div class="mat-elevation-z8">
+                <div>
                     <table mat-table [dataSource]="dataSource" matSort>
 
                         <!-- ID Column -->

@@ -20,6 +20,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 
@@ -44,7 +45,8 @@ import {MatListModule} from '@angular/material/list';
     MatPaginatorModule,
     MatRadioModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatBadgeModule
     
     
   ],
@@ -66,7 +68,8 @@ import {MatListModule} from '@angular/material/list';
     MatPaginatorModule,
     MatRadioModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatBadgeModule
   ]
 })
 export class SharedModule { }

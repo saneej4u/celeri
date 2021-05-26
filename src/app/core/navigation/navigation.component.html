@@ -8,12 +8,18 @@
         </div>
       
         <div>
-          <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active">DASHBOARD</button>
+          <button mat-button [routerLink]="['/dentist/home']" routerLinkActive="router-link-active">DASHBOARD</button>
           <button mat-button [routerLink]="['/dentist/shop']" routerLinkActive="router-link-active">NEW ORDER</button>
           <button mat-button [routerLink]="['/dentist/details']" routerLinkActive="router-link-active">MY ACCOUNT</button>
         </div>
         <div>
-                <button mat-icon-button aria-label="Example icon button with a heart icon">
+                <!-- <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+            
+                <span class="cdk-visually-hidden">
+                  Example with a home icon with overlaid badge showing the number 15
+                </span> -->
+
+                <button matBadge="15" matBadgeColor="warn" mat-icon-button aria-label="Example icon button with a heart icon">
                         <mat-icon>notifications</mat-icon>
                       </button>
                       <!-- <span class="mat-h4"> Welcome Saneej</span> -->
