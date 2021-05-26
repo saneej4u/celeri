@@ -1,1 +1,51 @@
-<p>signup works!</p>
+<div fxLayout="row" fxLayoutAlign="space-around center" style="height:100vh">
+    <div fxFlex="40" style="background-color: #3f51b5; height: 100vh;"></div>
+
+    <form novalidate [formGroup]="userFormGroup" (ngSubmit)="onSignUp()" fxLayout="column" fxLayoutAlign="center"
+        fxFlex="30" style="padding:2%">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Enter First Name" formControlName="firstName">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="userFormGroup.get('firstName').errors?.required">First name required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="lastName">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="userFormGroup.get('lastName').errors?.required">Last name required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>GDC Number</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="gdcNumber">
+            <mat-icon matSuffix>format_list_numbered</mat-icon>
+            <mat-error *ngIf="userFormGroup.get('gdcNumber').errors?.required">GDC Number required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email address</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="email">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="userFormGroup.get('email').errors?.required">Email required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Placeholder" type="password" formControlName="password">
+            <mat-icon matSuffix>visibility_off</mat-icon>
+            <mat-error *ngIf="userFormGroup.get('password').errors?.required">Password required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput placeholder="Placeholder" type="password" formControlName="confirmPassword">
+            <mat-icon matSuffix>visibility_off</mat-icon>
+            <mat-error *ngIf="userFormGroup.get('confirmPassword').errors?.required">Password required</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" style="width: 100%; padding: 8px;">Create Account</button>
+
+
+    </form>
+
+    <div fxFlex></div>
+</div>
+
+{{ userFormGroup.value | json }}
