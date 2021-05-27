@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/model/user';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,7 @@ export class SignupComponent implements OnInit {
   user: User;
   userFormGroup: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private accountService: AccountService) {}
 
   ngOnInit(): void {
     this.userFormGroup = this.fb.group({
@@ -27,6 +28,8 @@ export class SignupComponent implements OnInit {
   onSignUp() {
 
     console.log(this.userFormGroup.get('firstName').value);
+
+    this.accountService.SignUp("saneej@gmail.com", "test12345");
     
   }
 }
