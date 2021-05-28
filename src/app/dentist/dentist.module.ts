@@ -10,6 +10,7 @@ import { ImplantComponent } from './implant/implant.component';
 import { CrownBridgeComponent } from './crown-bridge/crown-bridge.component';
 import { OrthodonticComponent } from './orthodontic/orthodontic.component';
 import { MyDetailsComponent } from './my-details/my-details.component';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MyDetailsComponent } from './my-details/my-details.component';
   imports: [
     CommonModule,
     DentistRoutingModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ]
 })
 export class DentistModule { }

@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccountModule } from './account/account.module';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
@@ -38,7 +37,6 @@ const firebaseConfig = {
     BrowserAnimationsModule,
     AccountModule,
     SharedModule,
-    CoreModule,
     AngularFireModule.initializeApp(firebaseConfig),
     NgxAuthFirebaseUIModule.forRoot(firebaseConfig, () => 'your_app_name_factory',
     {
