@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/model/user';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from '../account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +13,7 @@ export class SignupComponent implements OnInit {
   user: User;
   userFormGroup: FormGroup;
 
-  constructor(private fb: FormBuilder, private accountService: AccountService) {}
+  constructor(private fb: FormBuilder, private accountService: AccountService, private router: Router) {}
 
   ngOnInit(): void {
     this.userFormGroup = this.fb.group({
@@ -31,5 +32,10 @@ export class SignupComponent implements OnInit {
 
     this.accountService.SignUp("saneej@gmail.com", "test12345");
     
+  }
+
+  onLoginRequested()
+  {
+    this.router.navigate(['/login'])
   }
 }

@@ -1,9 +1,8 @@
 <div fxLayout="row" fxLayoutAlign="space-around center" style="height:100vh">
-
-  <div fxFlex="40" style="background-color: #3f51b5; height: 100vh;">
+  <div fxFlex="35" style="background-color: #3f51b5; height: 100vh;">
 
   </div>
-
+  <!-- 
   <div fxLayout="column" fxLayoutAlign="center" fxFlex="30" style="padding:2%">
     <mat-form-field appearance="outline">
       <mat-label>Email address</mat-label>
@@ -26,10 +25,28 @@
     <button mat-button color="primary" style="width: 100%; padding: 3px;" [routerLink]="['/signup']" routerLinkActive="router-link-active">Forgot your password ?</button>
     
 
-  </div>
+  </div> -->
 
-  <div fxFlex>
+  <!-- <ngx-auth-firebaseui
+  appearence = "standard"
+            [providers]="[providers.Google, providers.Facebook]"
+            [guestEnabled]="false" 
+            (onSuccess)="saveUser($event)"
+             (onError)="handleError($event)"
+             [messageOnAuthSuccess]="message"
+             [messageOnAuthError]="errorMessage"
+             [registrationEnabled] = false
+             appearance="legacy" 
+             fxLayout="column" 
+             fxLayoutAlign="center" 
+             fxFlex="50" 
+             style="padding:2%">
+            </ngx-auth-firebaseui> -->
 
-  </div>
+  <ngx-auth-firebaseui-login [providers]="[providers.Google, providers.Facebook]" [resetPasswordEnabled]="false"
+    (onCreateAccountRequested)="onCreateAccountRequested()" (onLoginButtonClicked)="onLoginButtonClicked()"
+    (onSuccess)="onSuccess()" (onError) = "onError()"></ngx-auth-firebaseui-login>
+
+  <div fxFlex></div>
 
 </div>

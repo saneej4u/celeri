@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="space-around center" style="height:100vh">
-    <div fxFlex="40" style="background-color: #3f51b5; height: 100vh;"></div>
+    <div fxFlex="35" style="background-color: #3f51b5; height: 100vh;"></div>
 
-    <form novalidate [formGroup]="userFormGroup" (ngSubmit)="onSignUp()" fxLayout="column" fxLayoutAlign="center"
+    <!-- <form novalidate [formGroup]="userFormGroup" (ngSubmit)="onSignUp()" fxLayout="column" fxLayoutAlign="center"
         fxFlex="30" style="padding:2%">
         <mat-form-field appearance="outline">
             <mat-label>First Name</mat-label>
@@ -43,9 +43,9 @@
         <button mat-raised-button color="primary" style="width: 100%; padding: 8px;">Create Account</button>
 
 
-    </form>
+    </form> -->
+
+    <ngx-auth-firebaseui-register (onLoginRequested)="onLoginRequested()"></ngx-auth-firebaseui-register>
 
     <div fxFlex></div>
 </div>
-
-{{ userFormGroup.value | json }}
