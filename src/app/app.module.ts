@@ -41,7 +41,7 @@ const firebaseConfig = {
     NgxAuthFirebaseUIModule.forRoot(firebaseConfig, () => 'your_app_name_factory',
     {
       enableFirestoreSync: true, // enable/disable autosync users with firestore
-      toastMessageOnAuthSuccess: true, // whether to open/show a snackbar message on auth success - default : true
+      toastMessageOnAuthSuccess: false, // whether to open/show a snackbar message on auth success - default : true
       toastMessageOnAuthError: true, // whether to open/show a snackbar message on auth error - default : true
       authGuardFallbackURL: '/', // url for unauthenticated users - to use in combination with canActivate feature on a route
       authGuardLoggedInURL: '/dentist/home', // url for authenticated users - to use in combination with canActivate feature on a route
@@ -54,7 +54,7 @@ const firebaseConfig = {
       // Plus protected routes are still protected even though user is connected.
       guardProtectedRoutesUntilEmailIsVerified: true,
       enableEmailVerification: false, // default: true
-      useRawUserCredential: true, // If set to true outputs the UserCredential object instead of firebase.User after login and signup - Default: false
+      useRawUserCredential: false, // If set to true outputs the UserCredential object instead of firebase.User after login and signup - Default: false
     })
   ],
   providers: [],

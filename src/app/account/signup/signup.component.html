@@ -45,7 +45,7 @@
 
     </form> -->
 
-    <ngx-auth-firebaseui-register (onLoginRequested)="onLoginRequested()"></ngx-auth-firebaseui-register>
+    <ngx-auth-firebaseui-register (onSuccess) = 'onSignUpSuccess()' (onLoginRequested)="onLoginRequested()"></ngx-auth-firebaseui-register>
 
     <div fxFlex></div>
 </div>

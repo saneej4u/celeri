@@ -21,6 +21,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 
@@ -46,7 +51,11 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatRadioModule,
     MatDividerModule,
     MatListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule
     
   ],
   exports:[
@@ -68,7 +77,14 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatRadioModule,
     MatDividerModule,
     MatListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule ,
+    MatCheckboxModule
+  ],
+  providers: [  
+    MatDatepickerModule,  
   ]
 })
 export class SharedModule { }
