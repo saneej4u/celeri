@@ -11,6 +11,7 @@ import { CrownBridgeComponent } from './crown-bridge/crown-bridge.component';
 import { OrthodonticComponent } from './orthodontic/orthodontic.component';
 import { MyDetailsComponent } from './my-details/my-details.component';
 import { CoreModule } from '../core/core.module';
+import { NewPracticeComponent } from './new-practice/new-practice.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CoreModule } from '../core/core.module';
     ImplantComponent,
     CrownBridgeComponent,
     OrthodonticComponent,
-    MyDetailsComponent
+    MyDetailsComponent,
+    NewPracticeComponent
   ],
   imports: [
     CommonModule,

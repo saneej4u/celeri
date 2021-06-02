@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { CrownBridgeComponent } from '../crown-bridge/crown-bridge.component';
 import { ShopService } from './shop.service';
 import { Observable } from 'rxjs';
+import { ImplantComponent } from '../implant/implant.component';
+import { OrthodonticComponent } from '../orthodontic/orthodontic.component';
 
 @Component({
   selector: 'app-shop',
@@ -10,22 +12,54 @@ import { Observable } from 'rxjs';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-
-  constructor(public dialog: MatDialog, private shopService:  ShopService) { }
+  constructor(public dialog: MatDialog, private shopService: ShopService) {}
   products: Observable<any>;
 
   ngOnInit(): void {
-    this.products = this.shopService.GetAllProductsByLabId('67jYVM7C95wsePVPAyvD');
+    this.products = this.shopService.GetAllProductsByLabId(
+      '67jYVM7C95wsePVPAyvD'
+    );
   }
 
-  openCrownAndBridge(productId: string)
-  {
-    console.log("Product Id: " + productId)
-    const dialogRef = this.dialog.open(CrownBridgeComponent, {});
+  private openCrownAndBridge() {
+    const dialogRef = this.dialog.open(CrownBridgeComponent, {
+      disableClose: true
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
+  private openImplant() {
+    const dialogRef = this.dialog.open(ImplantComponent, {
+      disableClose: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  private openOrtho() {
+    const dialogRef = this.dialog.open(OrthodonticComponent, {
+      disableClose: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  OnTicketCreated(code: string) {
+    if (code == 'CB') {
+      this.openCrownAndBridge();
+    }
+    else if (code == 'O') {
+      this.openOrtho();
+    } 
+    else {
+      this.openImplant();
+    }
+  }
 }

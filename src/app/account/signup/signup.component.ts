@@ -27,11 +27,9 @@ export class SignupComponent implements OnInit {
   }
 
   onSignUp() {
-
     console.log(this.userFormGroup.get('firstName').value);
 
-    this.accountService.SignUp("saneej@gmail.com", "test12345");
-    
+    this.accountService.SignUp("saneej@gmail.com", "test12345"); 
   }
 
   onLoginRequested()

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { Practice } from 'src/app/shared/model/practice';
+import { AccountService } from 'src/app/account/account.service';
 
 interface Food {
   value: string;
@@ -19,16 +21,22 @@ export class CrownBridgeComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+  practices: Practice[];
   selectedValue: string;
+  dentistName: string;
   
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private accountService:  AccountService) { }
 
   ngOnInit(): void {
+
+     this.dentistName = this.accountService.currentUserName;
+
+    this.accountService.GetAllPracticesByDentist(this.accountService.currentUserId).subscribe(res => {
+
+      this.practices = res;
+    }, (err) => {
+
+    });
 
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]

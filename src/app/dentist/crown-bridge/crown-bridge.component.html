@@ -1,18 +1,15 @@
 <h2 mat-dialog-title>Crown & Bridge</h2>
-<p>Learn one way to build applications with Angular and reuse your code and abilities to build
-  apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>
-
-<br>
 <mat-dialog-content class="mat-typography">
   <mat-horizontal-stepper #stepper>
-    <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required." >
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Patient Details is missing.">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Details</ng-template>
-        <div style="margin: 10px 0"  fxLayout="row" fxLayoutAlign="space-between none">
-
-          <div fxFlex="48" fxLayout="column" fxLayoutAlign="space-between">
+        <div style="margin: 10px 0" fxLayout="row" fxLayoutAlign="space-between none" fxLayoutGap="20px">
+          <div fxFlex="50" fxLayout="column" fxLayoutAlign="space-between">
             <mat-card>
-              <mat-card-title> <h4>Patient Details</h4> </mat-card-title>
+              <mat-card-title>
+                <h4>Patient Details</h4>
+              </mat-card-title>
               <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
                 <mat-form-field>
                   <mat-label>Reference</mat-label>
@@ -32,54 +29,71 @@
 
 
           </div>
-          <div fxFlex="48" fxLayout="column" fxLayoutAlign="space-between">
-              <mat-card>
-                  <mat-card-title> <h4>Delivery Details</h4> </mat-card-title>
-                  <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
-                      <mat-form-field>
-                          <mat-label>Address</mat-label>
-                          <mat-select name="food">
-                            <mat-option *ngFor="let food of foods" [value]="food.value">
-                              {{food.viewValue}}
-                            </mat-option>
-                          </mat-select>
-                        </mat-form-field>
-                        <mat-form-field>
-                            <mat-label>Practice Delivery Date</mat-label>
-                            <input matInput [matDatepicker]="picker">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                          </mat-form-field>
-                    <!-- <h4>Service Level</h4> 
+          <div fxFlex="50" fxLayout="column" fxLayoutAlign="space-between">
+            <mat-card>
+              <mat-card-title>
+                <h4>Dentist & Practice Details</h4>
+              </mat-card-title>
+              <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
+                <mat-form-field>
+                  <mat-label>Dentist Name</mat-label>
+                  <input matInput placeholder="Last name, First name" [value]="dentistName" [disabled]=true>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Address</mat-label>
+                  <mat-select name="food">
+                    <mat-option *ngFor="let practice of practices" [value]="practice.Name">
+                      {{practice.Name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <!-- <h4>Service Level</h4> 
                    
                             <mat-radio-group aria-label="Select an option">
                                 <mat-radio-button value="1">Private</mat-radio-button>
                                 <mat-radio-button value="2">Independent</mat-radio-button>
                                 <mat-radio-button value="3">Standard</mat-radio-button>
                               </mat-radio-group> -->
-                      
-                  </mat-card-content>
-    
-                </mat-card>
+
+              </mat-card-content>
+
+            </mat-card>
           </div>
-
-
         </div>
-<div fxLayout="row" fxLayoutAlign="space-between center">
-    <div fxFlex="100">
-        <mat-card>
-            <mat-card-title> <h4>Service Level</h4> </mat-card-title>
-            <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
+        <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="20px">
+          <div fxFlex="50">
+            <mat-card>
+              <mat-card-title>
+                <h4>Delivery Date</h4>
+              </mat-card-title>
+              <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
+                <mat-form-field>
+                  <mat-label>Practice Delivery Date</mat-label>
+                  <input matInput [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </mat-card-content>
+
+            </mat-card>
+          </div>
+          <div fxFlex="50">
+            <mat-card>
+              <mat-card-title>
+                <h4>Service Level</h4>
+              </mat-card-title>
+              <mat-card-content fxLayout="column" fxLayoutAlign="space-between">
                 <mat-radio-group aria-label="Select an option">
-                    <mat-radio-button value="1">Private</mat-radio-button>
-                    <mat-radio-button value="2">Independent</mat-radio-button>
-                    <mat-radio-button value="3">Standard</mat-radio-button>
-                  </mat-radio-group>
-            </mat-card-content>
-    
-          </mat-card>
-    </div>
-</div>
+                  <mat-radio-button value="1">Private</mat-radio-button>
+                  <mat-radio-button value="2">Independent</mat-radio-button>
+                  <mat-radio-button value="3">Standard</mat-radio-button>
+                </mat-radio-group>
+              </mat-card-content>
+
+            </mat-card>
+          </div>
+        </div>
         <div>
           <div fxLayout="row" fxLayoutAlign="end center" style="padding: 10px 20px;">
             <button mat-raised-button color="primary" matStepperNext>SAVE & NEXT</button>
@@ -92,80 +106,80 @@
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Restoration Type</ng-template>
         <mat-card>
-            <mat-card-content>
-              <h4 class="example-h2">Zirconia Restorations</h4>
-          
-              <section class="example-section">
-                <mat-checkbox class="example-margin" >Full Form Zirconia Crown / Bridge</mat-checkbox>
-                <mat-checkbox class="example-margin">Layered Zirconia Crown / Bridge</mat-checkbox>
-              </section>
-        
-            </mat-card-content>
-          </mat-card>
-          <mat-card style="margin-top: 10px;">
-              <mat-card-content>
-            
-                <h4 class="example-h2">Procelain Bonded Restorations</h4>
-            
-                <section class="example-section">
-                  <mat-checkbox class="example-margin">Bonded Crown (non precious)</mat-checkbox>
-                  <mat-checkbox class="example-margin">Bonded Crown (precious)</mat-checkbox>
-                  <mat-checkbox class="example-margin">Bonded Bridge (non precious)</mat-checkbox>
-                  <mat-checkbox class="example-margin">Bonded Bridge (precious)</mat-checkbox>
-                </section>
-                <section class="example-section">
-                    <mat-checkbox class="example-margin">Maryland (1 pontic 2 wing)</mat-checkbox>
-                    <mat-checkbox class="example-margin">Maryland (1 pontic 1 wing)</mat-checkbox>
-                  </section>
-              </mat-card-content>
-            </mat-card>
-            <mat-card style="margin-top: 10px;">
-                <mat-card-content>
-              
-                  <h4 class="example-h2">Metal Only Restorations</h4>
-              
-                  <section class="example-section">
-                    <mat-checkbox class="example-margin" >Checked</mat-checkbox>
-                    <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
-                    <mat-checkbox class="example-margin" >Checked</mat-checkbox>
-                    <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
-                    <mat-checkbox class="example-margin" >Checked</mat-checkbox>
-                    <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
-                  </section>
-                </mat-card-content>
-              </mat-card>
-              <mat-card style="margin-top: 10px;">
-                  <mat-card-content>
-                
-                    <h4 class="example-h2">Metal Free Restorations</h4>
-                
-                    <section class="example-section">
-                      <mat-checkbox class="example-margin" >Composite Inlay / Onlay</mat-checkbox>
-                      <mat-checkbox class="example-margin">Composite Crown</mat-checkbox>
-                      <mat-checkbox class="example-margin" >Composite Veneer</mat-checkbox>
-                      <mat-checkbox class="example-margin">Porcelain Veneer</mat-checkbox>
-                      <mat-checkbox class="example-margin" >Dentain Bonded</mat-checkbox>
-                    </section>
-                    <section class="example-section">
-                        <mat-checkbox class="example-margin">EMAX Crown / Bridge (private only)</mat-checkbox>
-                        <mat-checkbox class="example-margin">EMAX Inlay / Onlay (private only)</mat-checkbox>
-                        <mat-checkbox class="example-margin">EMAX Veneer (private only)</mat-checkbox>
-                      </section>
-                  </mat-card-content>
-                </mat-card>
-                <mat-card style="margin-top: 10px;">
-                    <mat-card-content>
-                  
-                      <h4 class="example-h2">Temporary Restorations</h4>
-                  
-                      <section class="example-section">
-                        <mat-checkbox class="example-margin" >PMMA Crown / Bridge</mat-checkbox>
-                        <mat-checkbox class="example-margin">Metal Composite Crown / Bridge</mat-checkbox>
-                      </section>
-                    </mat-card-content>
-                  </mat-card>
+          <mat-card-content>
+            <h4 class="example-h2">Zirconia Restorations</h4>
+
+            <section class="example-section">
+              <mat-checkbox class="example-margin">Full Form Zirconia Crown / Bridge</mat-checkbox>
+              <mat-checkbox class="example-margin">Layered Zirconia Crown / Bridge</mat-checkbox>
+            </section>
+
+          </mat-card-content>
+        </mat-card>
+        <mat-card style="margin-top: 10px;">
+          <mat-card-content>
+
+            <h4 class="example-h2">Procelain Bonded Restorations</h4>
+
+            <section class="example-section">
+              <mat-checkbox class="example-margin">Bonded Crown (non precious)</mat-checkbox>
+              <mat-checkbox class="example-margin">Bonded Crown (precious)</mat-checkbox>
+              <mat-checkbox class="example-margin">Bonded Bridge (non precious)</mat-checkbox>
+              <mat-checkbox class="example-margin">Bonded Bridge (precious)</mat-checkbox>
+            </section>
+            <section class="example-section">
+              <mat-checkbox class="example-margin">Maryland (1 pontic 2 wing)</mat-checkbox>
+              <mat-checkbox class="example-margin">Maryland (1 pontic 1 wing)</mat-checkbox>
+            </section>
+          </mat-card-content>
+        </mat-card>
+        <mat-card style="margin-top: 10px;">
+          <mat-card-content>
+
+            <h4 class="example-h2">Metal Only Restorations</h4>
+
+            <section class="example-section">
+              <mat-checkbox class="example-margin">Checked</mat-checkbox>
+              <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
+              <mat-checkbox class="example-margin">Checked</mat-checkbox>
+              <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
+              <mat-checkbox class="example-margin">Checked</mat-checkbox>
+              <mat-checkbox class="example-margin">Indeterminate</mat-checkbox>
+            </section>
+          </mat-card-content>
+        </mat-card>
+        <mat-card style="margin-top: 10px;">
+          <mat-card-content>
+
+            <h4 class="example-h2">Metal Free Restorations</h4>
+
+            <section class="example-section">
+              <mat-checkbox class="example-margin">Composite Inlay / Onlay</mat-checkbox>
+              <mat-checkbox class="example-margin">Composite Crown</mat-checkbox>
+              <mat-checkbox class="example-margin">Composite Veneer</mat-checkbox>
+              <mat-checkbox class="example-margin">Porcelain Veneer</mat-checkbox>
+              <mat-checkbox class="example-margin">Dentain Bonded</mat-checkbox>
+            </section>
+            <section class="example-section">
+              <mat-checkbox class="example-margin">EMAX Crown / Bridge (private only)</mat-checkbox>
+              <mat-checkbox class="example-margin">EMAX Inlay / Onlay (private only)</mat-checkbox>
+              <mat-checkbox class="example-margin">EMAX Veneer (private only)</mat-checkbox>
+            </section>
+          </mat-card-content>
+        </mat-card>
+        <mat-card style="margin-top: 10px;">
+          <mat-card-content>
+
+            <h4 class="example-h2">Temporary Restorations</h4>
+
+            <section class="example-section">
+              <mat-checkbox class="example-margin">PMMA Crown / Bridge</mat-checkbox>
+              <mat-checkbox class="example-margin">Metal Composite Crown / Bridge</mat-checkbox>
+            </section>
+          </mat-card-content>
+        </mat-card>
         <div>
-      
+
 
           <div fxLayout="row" fxLayoutAlign="end center" style="padding: 10px 20px;">
             <button mat-raised-button color="warn" matStepperPrevious style="margin-right: 10px;">BACK</button>
@@ -191,19 +205,19 @@
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
-        <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel>Instructions</ng-template>
-          <mat-form-field>
-            <mat-label>Address</mat-label>
-            <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
-          </mat-form-field>
-          <div>
-            <p>Go to a different step to see the error state</p>
-            <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-            <button mat-raised-button color="primary" matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Instructions</ng-template>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <p>Go to a different step to see the error state</p>
+          <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
     <mat-step>
       <ng-template matStepLabel>Summary</ng-template>
       <p>You are now done.</p>
@@ -214,3 +228,6 @@
     </mat-step>
   </mat-horizontal-stepper>
 </mat-dialog-content>
+<mat-dialog-actions align="start">
+    <button mat-button cdkFocusInitial mat-dialog-close >Cancel</button>
+  </mat-dialog-actions>

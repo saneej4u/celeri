@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Practice } from '../shared/model/practice';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +60,16 @@ export class AccountService {
     return user !== null ? true : false;
   }
 
+  get currentUserId(): string {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user !== null ? user.uid : null;
+  }
+
+  get currentUserName(): string {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user !== null ? user.displayName : null;
+  }
+
   // Sign out
   SignOut() {
     return this.auth.signOut().then(() => {
@@ -78,5 +89,23 @@ export class AccountService {
       .catch(error => {
         window.alert(error.message);
       });
+  }
+
+  OnPracticeDetailsAdd(practice: Practice) {
+    this.firestore
+      .collection('users')
+      .doc(practice.DentistId)
+      .collection('practices')
+      .add(practice)
+      .then(x => {})
+      .catch(err => {});
+  }
+
+  GetAllPracticesByDentist(dentistId: string): Observable<Practice[]> {
+    return this.firestore
+      .collection('users')
+      .doc(dentistId)
+      .collection<Practice>('practices')
+      .valueChanges();
   }
 }

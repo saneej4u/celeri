@@ -1,0 +1,37 @@
+<form novalidate  [formGroup] ='patientFormGroup' >
+<h3 mat-dialog-title>Add New Practice</h3>
+<div mat-dialog-content>
+    <div fxLayout="column">
+        <mat-form-field fxFlex='100' class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Practice Name" formControlName="Name">
+        </mat-form-field>
+        <mat-form-field fxFlex='100' class="example-full-width">
+            <mat-label>Address Line 1</mat-label>
+            <input matInput placeholder="Ex. Broad Street" formControlName="AddressLine1">
+        </mat-form-field>
+        <mat-form-field fxFlex='100' class="example-full-width">
+            <mat-label>Address Line 2</mat-label>
+            <input matInput placeholder="Ex. Gratton" formControlName="AddressLine2">
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutGap='20px'>
+            <mat-form-field fxFlex='50' class="example-full-width">
+                <mat-label>City / Town</mat-label>
+                <input matInput placeholder="Ex. Bradford" formControlName="CityOrTown">
+            </mat-form-field>
+            <mat-form-field fxFlex='50' class="example-full-width">
+                <mat-label>Postcode</mat-label>
+                <input matInput placeholder="Ex. BD6 3FG" formControlName="Postcode">
+            </mat-form-field>
+        </div>
+        <mat-form-field fxFlex='100' class="example-full-width">
+            <mat-label>Telephone / Mobile</mat-label>
+            <input matInput placeholder="" formControlName="Telephone">
+        </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px;" style="margin: 5px 0">
+    <button mat-raised-button color="warn" (click)="onNoClick()">CANCEL</button>
+    <button type="submit" mat-raised-button color="primary" (click) ="onNewPracticeClick()" cdkFocusInitial>ADD</button>
+</div>
+</form>

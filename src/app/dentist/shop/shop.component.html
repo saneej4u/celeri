@@ -6,15 +6,15 @@
 
   <div fxFlex="20%" *ngFor="let item of products | async">
     <mat-card>
-      <mat-card-title>{{ item.Name}} </mat-card-title>
-      <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg">
+      <mat-card-title style="margin: 20px 0">{{ item.Name}} </mat-card-title>
+      <img mat-card-image class="img" [src]='item.ImageUrl'>
       <mat-card-content>
         <p style="min-height: 80px;">
           {{ item.Description }}
         </p>
       </mat-card-content>
       <mat-card-actions  fxLayout="row" fxLayoutAlign="end center" >
-        <button mat-button><button mat-raised-button (click)=openCrownAndBridge(item.ProductId) color="primary">ORDER</button></button>
+        <button mat-button><button mat-raised-button (click)=OnTicketCreated(item.Code) color="primary">ORDER</button></button>
       </mat-card-actions>
     </mat-card>
   </div>

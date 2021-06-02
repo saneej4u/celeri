@@ -1,6 +1,6 @@
 <app-navigation></app-navigation>
-<div fxLayout="row" style="height: 100vh" fxLayoutAlign="space-around start">
-    <div fxFlex="40" class="mat-elevation-z8" style="background: lightgray" style="margin: 30px; padding: 30px;">
+<div fxLayout="row" style="height: 100vh; padding: 20px;" fxLayoutAlign="space-around start" fxLayoutGap="30px">
+    <div fxFlex="40" class="mat-elevation-z8" style="background: lightgray" style="padding: 30px;">
         <h2>My Details</h2>
         <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="30px;">
             <div fxFlex="50">
@@ -46,53 +46,47 @@
                 </mat-form-field>
             </div>
         </div>
-        <div fxLayout="row" fxLayoutAlign="end center" >
-                <button matPrefix mat-raised-button color="primary">Save</button>
-            </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+            <button matPrefix mat-raised-button color="primary">Save</button>
+        </div>
 
     </div>
-    
-    <div fxFlex="50" class="mat-elevation-z8" style="background: lightgray" style="margin: 30px 0px; padding: 30px;">
-        
-            <div fxLayout="row" fxLayoutAlign="space-between center" >
+    <div fxFlex="55" class="mat-elevation-z8" style="background: lightgray" style="padding: 30px;">
 
-            <h2> Practices</h2>
-            <button matPrefix mat-raised-button color="primary">New Practice</button>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+
+            <h2>My Practices</h2>
+            <button matPrefix mat-raised-button color="primary" (click)="OnAddNewPractice()">Add New Practice</button>
         </div>
-        
+
 
         <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="30px;">
             <div fxFlex>
                 <mat-form-field>
                     <mat-label>Filter</mat-label>
-                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Practice Name, Address or Telephone"
+                        #input>
                 </mat-form-field>
-
                 <div>
                     <table mat-table [dataSource]="dataSource" matSort>
 
                         <!-- ID Column -->
-                        <ng-container matColumnDef="id">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                        <ng-container matColumnDef="Name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Practice Name </th>
+                            <td mat-cell *matCellDef="let row"> {{row.Name}} </td>
                         </ng-container>
 
                         <!-- Progress Column -->
-                        <ng-container matColumnDef="progress">
+                        <ng-container matColumnDef="AddressLine1">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-                            <td mat-cell *matCellDef="let row"> {{row.progress}}% </td>
-                        </ng-container>
-
-                        <!-- Name Column -->
-                        <ng-container matColumnDef="name">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Practice Name </th>
-                            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                            <td mat-cell *matCellDef="let row"> {{row.AddressLine1}} <br> {{row.AddressLine2}} <br>
+                                {{row.CityOrTown}} <br> {{row.Postcode}}</td>
                         </ng-container>
 
                         <!-- Color Column -->
-                        <ng-container matColumnDef="color">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email & Phone </th>
-                            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </td>
+                        <ng-container matColumnDef="Telephone">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Telephone </th>
+                            <td mat-cell *matCellDef="let row"> {{row.Telephone}} </td>
                         </ng-container>
 
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -103,7 +97,6 @@
                             <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
                         </tr>
                     </table>
-
                     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
                 </div>
             </div>
