@@ -38,6 +38,7 @@ export class NewPracticeComponent implements OnInit {
     }
 
     this.accountService.OnPracticeDetailsAdd(practice);
+    this.dialogRef.close();
 
   }
 

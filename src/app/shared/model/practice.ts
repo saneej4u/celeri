@@ -1,5 +1,6 @@
 export interface Practice 
 {
+    PracticeId?: string;
     DentistId: string;
     Name: string;
     AddressLine1: string;

@@ -3,17 +3,37 @@
     <div fxFlex="40" class="mat-elevation-z8" style="background: lightgray" style="padding: 30px;">
         <h2>My Details</h2>
         <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="30px;">
+            <div fxFlex="100">
+                <mat-form-field appearance="outline" style="width:100%">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput placeholder="Placeholder" [value]='dentist?.email' [disabled]=true>
+                    <mat-icon matPrefix>email</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="30px;">
+            <div fxFlex="100">
+                <mat-form-field appearance="outline" style="width:100%">
+                    <mat-label>Display Name</mat-label>
+                    <input matInput placeholder="Placeholder" [value]='dentist?.displayName'>
+                    <mat-icon matPrefix>account_circle</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="30px;">
             <div fxFlex="50">
                 <mat-form-field appearance="outline" style="width:90%">
                     <mat-label>First Name</mat-label>
-                    <input matInput placeholder="Placeholder">
+                    <input matInput placeholder="Placeholder" [value]='dentist?.firstName'>
                     <mat-icon matPrefix>person</mat-icon>
                 </mat-form-field>
             </div>
             <div fxFlex="50">
                 <mat-form-field appearance="outline" style="width: 100%">
                     <mat-label>Last Name</mat-label>
-                    <input matInput placeholder="Placeholder">
+                    <input matInput placeholder="Placeholder" [value]='dentist?.lastName'>
                     <mat-icon matPrefix>person</mat-icon>
                 </mat-form-field>
             </div>
@@ -23,7 +43,7 @@
             <div fxFlex="50">
                 <mat-form-field appearance="outline" style="width:90%">
                     <mat-label>GDC Number</mat-label>
-                    <input matInput placeholder="Placeholder">
+                    <input matInput placeholder="Placeholder" [value]='dentist?.gdcNumber'>
                     <mat-icon matPrefix><span class="material-icons-outlined">
                             drag_indicator
                         </span></mat-icon>
@@ -32,20 +52,12 @@
             <div fxFlex="50">
                 <mat-form-field appearance="outline" style="width: 100%">
                     <mat-label>Mobile</mat-label>
-                    <input matInput placeholder="Placeholder">
+                    <input matInput placeholder="Placeholder" [value]='dentist?.mobile'>
                     <mat-icon matPrefix>call</mat-icon>
                 </mat-form-field>
             </div>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="30px;">
-            <div fxFlex="100">
-                <mat-form-field appearance="outline" style="width:100%">
-                    <mat-label>Email Address</mat-label>
-                    <input matInput placeholder="Placeholder">
-                    <mat-icon matPrefix>email</mat-icon>
-                </mat-form-field>
-            </div>
-        </div>
+
         <div fxLayout="row" fxLayoutAlign="end center">
             <button matPrefix mat-raised-button color="primary">Save</button>
         </div>

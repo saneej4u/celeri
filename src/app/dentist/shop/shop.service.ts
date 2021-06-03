@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared/model/product';
 import { Lab } from 'src/app/shared/model/lab';
+import { Order } from 'src/app/shared/model/order';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,17 @@ export class ShopService {
     this.productsCollection= this.labDocument.collection<Product>('Products');
     return this.productsCollection.valueChanges({ idField: 'ProductId' });
     
+  }
+
+  CreateOrder(order: Order) 
+  {
+    order.OrderId = this.firestore.createId();
+    this.firestore
+      .collection('Orders')
+      .add(order)
+      .then(x => {
+        
+      })
+      .catch(err => {});
   }
 }

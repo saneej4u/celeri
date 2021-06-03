@@ -6,23 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewPracticeComponent } from '../new-practice/new-practice.component';
 import { AccountService } from 'src/app/account/account.service';
 import { Practice } from 'src/app/shared/model/practice';
+import { User } from 'src/app/shared/model/user';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
-
-// /** Constants used to fill up our data base. */
-// const COLORS: string[] = [
-//   'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-//   'aqua', 'blue', 'navy', 'black', 'gray'
-// ];
-// const NAMES: string[] = [
-//   'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-//   'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-// ];
 
 @Component({
   selector: 'app-my-details',
@@ -33,6 +18,7 @@ export class MyDetailsComponent implements OnInit {
 
   displayedColumns: string[] = ['Name', 'AddressLine1', 'Telephone'];
   dataSource: MatTableDataSource<Practice>;
+  dentist: User;
 
   practices: Practice[];
 
@@ -52,13 +38,16 @@ export class MyDetailsComponent implements OnInit {
     }, (error) => {
 
     })
+
+  
+    this.accountService.GetUserDetailsById(this.accountService.currentUserId)
+    .subscribe(response => {
+       this.dentist = response;
+    }, (error) => {
+
+    })
     
   }
-
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
-  // }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -72,7 +61,8 @@ export class MyDetailsComponent implements OnInit {
 
   OnAddNewPractice(): void {
     const dialogRef = this.dialog.open(NewPracticeComponent, {
-      width: '550px'
+      width: '550px',
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -81,17 +71,3 @@ export class MyDetailsComponent implements OnInit {
   }
 
 }
-
-/** Builds and returns a new User. */
-// function createNewUser(id: number): UserData {
-//   const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-//       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-//   return {
-//     id: id.toString(),
-//     name: name,
-//     progress: Math.round(Math.random() * 100).toString(),
-//     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-//   };
-
-// }

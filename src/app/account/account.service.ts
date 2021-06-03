@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Practice } from '../shared/model/practice';
+import { User } from '../shared/model/user';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -106,6 +108,35 @@ export class AccountService {
       .collection('users')
       .doc(dentistId)
       .collection<Practice>('practices')
+      .valueChanges({ idField: 'PracticeId' });
+  }
+
+  GetUserDetailsById(userId: string): Observable<User> {
+    return this.firestore
+      .collection('users')
+      .doc<User>(userId)
+      .valueChanges()
+      .pipe(
+        map(x => {
+          return {
+            displayName: x.displayName,
+            email: x.email,
+            firstName: x.firstName == undefined ? '' : x.firstName,
+            lastName: x.lastName == undefined ? '' : x.lastName,
+            mobile: x.mobile == undefined ? '' : x.mobile,
+            gdcNumber: x.gdcNumber == undefined ? '' : x.gdcNumber
+          };
+        })
+      );
+  }
+
+  GetPracticeById(parcticeId: string) : Observable<Practice> {
+  
+    return this.firestore
+      .collection('users')
+      .doc(this.currentUserId)
+      .collection('practices')
+      .doc<Practice>(parcticeId)
       .valueChanges();
   }
 }
