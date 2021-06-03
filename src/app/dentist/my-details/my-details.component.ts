@@ -16,7 +16,7 @@ import { User } from 'src/app/shared/model/user';
 })
 export class MyDetailsComponent implements OnInit {
 
-  displayedColumns: string[] = ['Name', 'AddressLine1', 'Telephone'];
+  displayedColumns: string[] = ['Name', 'AddressLine1', 'Telephone', 'Delete', 'Edit'];
   dataSource: MatTableDataSource<Practice>;
   dentist: User;
 

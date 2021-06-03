@@ -7,22 +7,33 @@ table {
     width: 100%;
   }
   
-  td, th {
-    width: 25%;
-  }
+  // td, th {
+  //   width: 25%;
+  // }
 
 .mat-column-Telephone
 {
-  width:50px;
-  text-align: center;
+  width:150px;
+  text-align: left;
 }
 
 .mat-column-AddressLine1
 {
-  width:250px;
   padding: 10px 0;
 }
-.mat-column-AddressLine1
+
+.mat-column-Name
 {
-  width:150px;
+  width:250px;
+}
+
+.mat-column-Delete
+{
+  width:3px;
+  text-align: right;
+}
+.mat-column-Edit
+{
+  width:3px;
+  text-align: right;
 }
