@@ -1,5 +1,13 @@
-<h2 mat-dialog-title>Crown & Bridge</h2>
-<mat-dialog-content class="mat-typography">
+<div fxLayout fxLayoutAlign="space-between start" >
+    <h2 mat-dialog-title>Crown & Bridge</h2>
+  <button mat-icon-button color="" aria-label="Close" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+
+
+<div class="mat-typography">
   <mat-horizontal-stepper linear #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form novalidate [formGroup]="firstFormGroup">
@@ -85,10 +93,9 @@
             </div>
           </div>
           <div fxFlex>
-            <div fxLayout="row" fxLayoutAlign="end center">
-              <button type="submit" mat-raised-button color="primary" matStepperNext>
-                Next <mat-icon>navigate_next</mat-icon>
-              </button>
+            <div fxLayout="row" fxLayoutAlign="end center"  fxLayoutGap="20px">
+              <!-- <button mat-raised-button color="warn"  mat-dialog-close>     <mat-icon>close</mat-icon> Cancel</button> -->
+              <button mat-raised-button color="primary" matStepperNext>Next <mat-icon>skip_next</mat-icon></button>
             </div>
           </div>
         </div>
@@ -103,8 +110,8 @@
             <h4 class="example-h2">Zirconia Restorations</h4>
 
             <section class="example-section">
-              <mat-checkbox class="example-margin">Full Form Zirconia Crown / Bridge</mat-checkbox>
-              <mat-checkbox class="example-margin">Layered Zirconia Crown / Bridge</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="fullFormZirconiaCB">Full Form Zirconia Crown / Bridge</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="layeredZirconiaCB">Layered Zirconia Crown / Bridge</mat-checkbox>
             </section>
 
           </mat-card-content>
@@ -115,14 +122,14 @@
             <h4 class="example-h2">Procelain Bonded Restorations</h4>
 
             <section class="example-section">
-              <mat-checkbox class="example-margin">Bonded Crown (non precious)</mat-checkbox>
-              <mat-checkbox class="example-margin">Bonded Crown (precious)</mat-checkbox>
-              <mat-checkbox class="example-margin">Bonded Bridge (non precious)</mat-checkbox>
-              <mat-checkbox class="example-margin">Bonded Bridge (precious)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="bondedCrownNP">Bonded Crown (non precious)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="bondedCrownP">Bonded Crown (precious)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="bondedBridgeNP">Bonded Bridge (non precious)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="bondedBridgeP">Bonded Bridge (precious)</mat-checkbox>
             </section>
             <section class="example-section">
-              <mat-checkbox class="example-margin">Maryland (1 pontic 2 wing)</mat-checkbox>
-              <mat-checkbox class="example-margin">Maryland (1 pontic 1 wing)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="maryland1P2W">Maryland (1 pontic 2 wing)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="maryland1P1W">Maryland (1 pontic 1 wing)</mat-checkbox>
             </section>
           </mat-card-content>
         </mat-card>
@@ -132,13 +139,13 @@
             <h4 class="example-h2">Metal Only Restorations</h4>
 
             <section class="example-section">
-              <mat-checkbox class="example-margin">Full Shell Crown / Inlay / Onlay (non Precious)</mat-checkbox>
-              <mat-checkbox class="example-margin">Full Shell Crown / Inlay / Onlay (60% gold)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="fullShellCrInOnNP">Full Shell Crown / Inlay / Onlay (non Precious)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="fullShellCrInOn60G">Full Shell Crown / Inlay / Onlay (60% gold)</mat-checkbox>
             </section>
             <section class="example-section">
-              <mat-checkbox class="example-margin">Full Shell Crown / Inlay / Onlay (33% gold)</mat-checkbox>
-              <mat-checkbox class="example-margin">Post & Core (non precious)</mat-checkbox>
-              <mat-checkbox class="example-margin">Post & Core (precious)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="fullShellCrInOn33G">Full Shell Crown / Inlay / Onlay (33% gold)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="postCoreNP">Post & Core (non precious)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="postCoreP">Post & Core (precious)</mat-checkbox>
             </section>
           </mat-card-content>
         </mat-card>
@@ -148,16 +155,16 @@
             <h4 class="example-h2">Metal Free Restorations</h4>
 
             <section class="example-section">
-              <mat-checkbox class="example-margin">Composite Inlay / Onlay</mat-checkbox>
-              <mat-checkbox class="example-margin">Composite Crown</mat-checkbox>
-              <mat-checkbox class="example-margin">Composite Veneer</mat-checkbox>
-              <mat-checkbox class="example-margin">Porcelain Veneer</mat-checkbox>
-              <mat-checkbox class="example-margin">Dentain Bonded</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="compositeInOn">Composite Inlay / Onlay</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="compositeCrown">Composite Crown</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="compositeVeneer">Composite Veneer</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="procelainVeneer">Porcelain Veneer</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="dentineBonded">Dentain Bonded</mat-checkbox>
             </section>
             <section class="example-section">
-              <mat-checkbox class="example-margin">EMAX Crown / Bridge (private only)</mat-checkbox>
-              <mat-checkbox class="example-margin">EMAX Inlay / Onlay (private only)</mat-checkbox>
-              <mat-checkbox class="example-margin">EMAX Veneer (private only)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="emaxCBPrivate">EMAX Crown / Bridge (private only)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="emaxInOnPrivate">EMAX Inlay / Onlay (private only)</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="emaxVeneerPrivate">EMAX Veneer (private only)</mat-checkbox>
             </section>
           </mat-card-content>
         </mat-card>
@@ -167,15 +174,18 @@
             <h4 class="example-h2">Temporary Restorations</h4>
 
             <section class="example-section">
-              <mat-checkbox class="example-margin">PMMA Crown / Bridge</mat-checkbox>
-              <mat-checkbox class="example-margin">Metal Composite Crown / Bridge</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="pmmaCB">PMMA Crown / Bridge</mat-checkbox>
+              <mat-checkbox class="example-margin" formControlName="metalCompositeCB">Metal Composite Crown / Bridge</mat-checkbox>
             </section>
           </mat-card-content>
         </mat-card>
         <div>
-          <div fxLayout="row" fxLayoutAlign="end center" style="padding: 10px 20px;">
-            <button mat-raised-button color="warn" matStepperPrevious style="margin-right: 10px;">BACK</button>
-            <button mat-raised-button color="primary" matStepperNext>NEXT</button>
+          <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="20px">
+            <button mat-raised-button color="warn"  mat-dialog-close></button>
+            <button mat-raised-button color="warn" matStepperPrevious style="margin-right: 10px;">
+            <mat-icon>skip_previous</mat-icon>  Back
+            </button>
+            <button mat-raised-button color="primary" matStepperNext>Next <mat-icon>skip_next</mat-icon></button>
           </div>
         </div>
       </form>
@@ -217,7 +227,7 @@
       </div>
     </mat-step>
   </mat-horizontal-stepper>
-</mat-dialog-content>
-<mat-dialog-actions align="start">
+</div>
+<!-- <mat-dialog-actions align="start">
   <button mat-button cdkFocusInitial mat-dialog-close>Cancel</button>
-</mat-dialog-actions>
+</mat-dialog-actions> -->

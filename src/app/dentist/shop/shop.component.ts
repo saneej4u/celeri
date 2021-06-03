@@ -23,7 +23,9 @@ export class ShopComponent implements OnInit {
 
   private openCrownAndBridge() {
     const dialogRef = this.dialog.open(CrownBridgeComponent, {
-      disableClose: true, data: { productName: 'Crown & Bridge' }
+      disableClose: true, data: { productName: 'Crown & Bridge' },
+      minHeight: 'calc(100vh - 90px)',
+      height : 'calc(100vh - 90px)'
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -57,7 +57,6 @@ export class CrownBridgeComponent implements OnInit {
     });
 
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['mmm', Validators.required],
       fullFormZirconiaCB: [''],
       layeredZirconiaCB: [''],
       bondedCrownNP: [''],
@@ -132,5 +131,6 @@ export class CrownBridgeComponent implements OnInit {
   OnInstructionClick() {
 
     console.log("First Form Value: " + JSON.stringify(this.firstFormGroup.value));
+    console.log("Second Form Value: " + JSON.stringify(this.secondFormGroup.value));
   }
 }
