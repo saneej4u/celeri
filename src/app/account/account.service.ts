@@ -130,7 +130,7 @@ export class AccountService {
       );
   }
 
-  GetPracticeById(parcticeId: string) : Observable<Practice> {
+  GetPracticeById(parcticeId: string) : Observable<any> {
   
     return this.firestore
       .collection('users')

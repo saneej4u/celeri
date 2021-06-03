@@ -4,14 +4,16 @@ export interface Order
     OrderCode?: string;
 
     LabId?: string;
+    LabName?: string;
 
     DentistId: string;
     DentistName?: string;
 
+    ProductName?: string;
+
     PracticeName?: string;
     PracticeAddressLine1?: string;
     PracticeAddressLine2?: string;
-    PracticeStreet?: string;
     PracticeCityOrTown?: string;
     PracticePostcode?: string;
     PracticeCounty?: string;

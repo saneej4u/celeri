@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Practice } from 'src/app/shared/model/practice';
 import { AccountService } from 'src/app/account/account.service';
 import { Order } from 'src/app/shared/model/order';
 import { ShopService } from '../shop/shop.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-crown-bridge',
@@ -25,8 +26,10 @@ export class CrownBridgeComponent implements OnInit {
   practices: Practice[];
   selectedValue: string;
   dentistName: string;
+  selectedPracticeId: string;
+  private selectedPractice: Practice;
 
-  constructor(
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private _formBuilder: FormBuilder,
     private accountService: AccountService,
     private shopService: ShopService
@@ -54,48 +57,80 @@ export class CrownBridgeComponent implements OnInit {
     });
 
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      secondCtrl: ['mmm', Validators.required],
+      fullFormZirconiaCB: [''],
+      layeredZirconiaCB: [''],
+      bondedCrownNP: [''],
+      bondedCrownP: [''],
+      bondedBridgeNP: [''],
+      bondedBridgeP: [''],
+      maryland1P2W: [''],
+      maryland1P1W: [''],
+      fullShellCrInOnNP: [''],
+      fullShellCrInOn60G: [''],
+      fullShellCrInOn33G: [''],
+      postCoreNP: [''],
+      postCoreP: [''],
+      compositeInOn: [''],
+      compositeCrown: [''],
+      compositeVeneer: [''],
+      procelainVeneer: [''],
+      dentineBonded: [''],
+      emaxCBPrivate: [''],
+      emaxInOnPrivate: [''],
+      emaxVeneerPrivate: [''],
+      pmmaCB: [''],
+      metalCompositeCB: ['']
     });
 
     this.thirdFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      secondCtrl: ['mmm', Validators.required]
     });
+
     this.fourthFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      secondCtrl: ['mmm', Validators.required]
     });
 
   }
 
-  OnDetailsSubmit() {
-    let selectedAddressId = this.firstFormGroup.get('selectedAddress').value;
+  onAddressChange(selectedPracticeId) : void{
 
-    console.log("On Detail submit ")
-    if (selectedAddressId) {
-      console.log('selected address: ' + selectedAddressId);
+    console.log("Selected Practice Id: " + selectedPracticeId);
+
+    if (selectedPracticeId) {
       this.accountService
-        .GetPracticeById(selectedAddressId)
+        .GetPracticeById(selectedPracticeId)
         .subscribe(practice => {
-          console.log('selected practices: ' + JSON.stringify(practice));
-
-          const order: Order = {
-            PatientRef: this.firstFormGroup.get('patientRef').value,
-            PatientFirstName: this.firstFormGroup.get('patientFirstName').value,
-            PatientLastName: this.firstFormGroup.get('patientLastName').value,
-            PracticeDeliveryDate: this.firstFormGroup.get('deliveryDate').value,
-            DentistId: this.accountService.currentUserId,
-            DentistName: this.accountService.currentUserName,
-            PracticeName: practice.Name,
-            PracticeAddressLine1: practice.AddressLine1,
-            PracticeAddressLine2: practice.AddressLine2,
-            PracticeCityOrTown: practice.CityOrTown,
-            PracticePostcode: practice.Postcode,
-            ServiceLevel: this.firstFormGroup.get('selectedServiceLevel').value
-          };
-
-          this.shopService.CreateOrder(order);
+          this.selectedPractice = practice;
+          console.log("Selected Practice: " + JSON.stringify(practice));
         });
     }
+  }
 
-    console.log('Details: ' + JSON.stringify(this.firstFormGroup.value));
+  OnDetailsSubmit() {
+
+    console.log("First Form Value: " + JSON.stringify(this.firstFormGroup.value));
+    // const order: Order = {
+    //   PatientRef: this.firstFormGroup.get('patientRef').value,
+    //   PatientFirstName: this.firstFormGroup.get('patientFirstName').value,
+    //   PatientLastName: this.firstFormGroup.get('patientLastName').value,
+    //   PracticeDeliveryDate: this.firstFormGroup.get('deliveryDate').value,
+    //   DentistId: this.accountService.currentUserId,
+    //   DentistName: this.accountService.currentUserName,
+    //   ProductName: this.data.productName,
+    //   PracticeName: this.selectedPractice.Name,
+    //   PracticeAddressLine1: this.selectedPractice.AddressLine1,
+    //   PracticeAddressLine2: this.selectedPractice.AddressLine2,
+    //   PracticeCityOrTown: this.selectedPractice.CityOrTown,
+    //   PracticePostcode: this.selectedPractice.Postcode,
+    //   ServiceLevel: this.firstFormGroup.get('selectedServiceLevel').value
+    // };
+
+   // this.shopService.CreateOrder(order);
+  }
+
+  OnInstructionClick() {
+
+    console.log("First Form Value: " + JSON.stringify(this.firstFormGroup.value));
   }
 }
